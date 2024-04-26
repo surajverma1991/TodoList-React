@@ -1,0 +1,209 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+:root {
+  --body-bg-color: #060822;
+  --text-black-color: #000000;
+  --text-white-color: #ffffff;
+  --border-color: #cccccc;
+  --add-bg-color: #5529dc;
+  --delete-btn-color: #d62f3d;
+  --edit-btn-color: #64d62f;
+}
+
+.main-div {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--body-bg-color);
+}
+
+.child-div {
+  text-align: center;
+}
+
+.child-div figure img {
+  width: 25%;
+}
+
+.child-div figure figcaption {
+  font-size: 2.2rem;
+  padding-top: 2rem;
+  text-transform: capitalize;
+  color: var(--text-white-color);
+}
+
+input {
+  min-width: 40rem;
+  height: 3.4rem;
+  padding: 2rem 1.2rem;
+  font-size: 1.8rem;
+  line-height: 1.42857143;
+  border-radius: 0.4rem;
+  box-shadow: inset 0 0.1rem 0.1rem rgb(0 0 0 / 8%);
+  color: var(--text-black-color);
+  background: var(--text-white-color);
+  border: 0.1rem solid var(--border-color);
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+
+input,
+input:focus,
+input:active,
+input:active:focus {
+  border: none;
+  padding: 2.3rem 1.5rem;
+  outline: none;
+}
+input {
+  box-shadow: none;
+  transition: all 0.2s linear;
+}
+input:focus {
+  box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.2);
+}
+
+.todo-btn {
+  width: 5rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+.fa {
+  margin-left: -2.5rem;
+  cursor: pointer;
+  pointer-events: auto;
+  z-index: 10;
+  font-size: 2rem;
+  background: var(--text-white-color);
+  color: var(--border-color);
+  transition: color 0.15s linear;
+}
+
+.fa:hover {
+  color: var(--edit-btn-color);
+}
+
+.fa-plus:before {
+  content: "\f067";
+  font-size: 1.5rem;
+}
+
+.addItems, .showItems, .showButton {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.eachItem {
+  padding: 1.2rem 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 0.7rem;
+  margin-left: 1rem;
+  min-width: 40rem;
+  word-break: break-word;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgb(85, 41, 220);
+}
+
+.eachItem:hover {
+  background: var(--text-white-color);
+  color: rgb(85, 41, 220);
+}
+
+.showItems .eachItem h3 {
+  padding-left: 1rem;
+  font-size: 1.6rem;
+  color: var(--text-white-color);
+}
+
+.fa-trash-alt,
+.fa-edit {
+  cursor: pointer;
+  pointer-events: auto;
+  z-index: 10;
+  -webkit-transition: color 0.15s linear;
+  transition: color 0.15s linear;
+  font-size: 2rem;
+  color: var(--text-white-color);
+}
+
+.fa-edit {
+  margin-left: -3.5rem;
+}
+
+.eachItem:hover .fa-trash-alt {
+  color: var(--delete-btn-color);
+}
+
+.eachItem:hover .fa-edit, .addItems .fa-edit {
+  color: var(--edit-btn-color);
+}
+
+.eachItem:hover h3 {
+  color: var(--add-bg-color);
+}
+
+.btn {
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 45px;
+  max-width: 160px;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 100%;
+  outline: none;
+  border: none;
+}
+
+.addButtonEffect {
+  display: inline-flex;
+  color: var(--text-black-color);
+  overflow: hidden;
+  transition-duration: 0.4s;
+}
+
+.addButtonEffect::before,
+.addButtonEffect span {
+  margin: 0 auto;
+  transition-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+  transition-duration: 0.4s;
+}
+
+.addButtonEffect:hover {
+  background: var(--add-bg-color);
+}
+
+.addButtonEffect:hover span {
+  transform: translateY(-400%) scale(-0.1, 20);
+}
+
+.addButtonEffect::before {
+  content: attr(data-sm-link-text);
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  color: var(--text-white-color);
+  transform: translateY(500%) scale(-0.1, 20);
+}
+
+.addButtonEffect:hover::before {
+  letter-spacing: 0.05em;
+  transform: translateY(0) scale(1, 1);
+}
